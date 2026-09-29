@@ -21,41 +21,10 @@ Web App конфигурация Firebase уже добавлена в прил�
 - `reviews/{id}` — приватные отзывы, видимые администратору.
 - `publicReviews/{id}` — опубликованные отзывы для клиента.
 
-Скопируйте `database.rules.json` в Rules Realtime Database и опубликуйте правила. Они уже разрешают администрирование подтверждённому пользователю `smixnevertime@gmail.com`. Публичная карточка содержит только разрешённые клиенту поля; трек-код имеет случайный длинный суффикс.
+Скопируйте `database.rules.json` в Rules Realtime Database и опубликуйте правила. Они разрешают администрирование подтверждённым пользователям `smixnevertime@gmail.com` и `mmabou287@gmail.com`. Публичная карточка содержит только разрешённые клиенту поля; трек-код имеет случайный длинный суффикс.
 
 ## GitHub Pages
 
-Поместите содержимое этой папки в отдельный GitHub-репозиторий. В Settings → Pages выберите **GitHub Actions**. Firebase Web App config уже находится в исходниках, поэтому secrets для клиентского приложения не нужны. После push в `main` workflow соберёт сайт и опубликует Pages.
+В Settings → Pages выберите **Deploy from a branch**, branch `main`, folder `/(root)`. Корневые `index.html` и `assets/` уже являются готовой production-сборкой. При дальнейших изменениях запустите `npm run build`, затем добавьте созданные изменения в Git и отправьте в `main`.
 
-Статусы рассчитываются в браузере по времени создания, способу перевозки и сроку: авиа 5–12 дней, автобус 10–18. Это простой вариант для статического хостинга, без серверной функции: переходы не записываются в историю базы, а часы клиента можно изменить.# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Статусы рассчитываются в браузере по времени создания, способу перевозки и сроку: авиа 5–12 дней, автобус 10–18. Это статический хостинг без серверной функции: автоматические переходы не записываются в историю базы.
